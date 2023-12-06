@@ -60,6 +60,7 @@ if (isset($_POST["submit"])) {
       <label>password</label>
       <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off" value="<?php echo $password ?>">
       </label>
+      <input type="checkbox" onclick="myFunction()">Show Password >
     </div>
     <button type="submit" class="btn btn-primary mx-5" name="submit">Update</button>
   </form>

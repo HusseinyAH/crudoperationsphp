@@ -50,12 +50,24 @@ if (isset($_POST["submit"])) {
     </div>
     <div class="form-group mx-5">
       <label>password</label>
-      <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off">
+      <input type="password" id="myInput" class="form-control" placeholder="password" name="password" autocomplete="off">
       </label>
+      <input type="checkbox"  onclick="myFunction()">  Show Password 
+
     </div>
     <button type="submit" class="btn btn-primary mx-5" name="submit">Submit</button>
+   
   </form>
-
+  
+  <script type="text/javascript">
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  } </script>
 </body>
 
 </html>
