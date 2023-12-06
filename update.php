@@ -1,6 +1,14 @@
 <?php
 include "database.php";
 $id=$_GET['updateid'];
+$sqlgetdatafortheid = "select * from `crudtable` where id=$id";
+$result=mysqli_query($mysqli,$sqlgetdatafortheid);
+$row =mysqli_fetch_assoc($result);
+$name= $row["name"];
+$email= $row["email"];
+$mobile= $row["mobile"];
+$password= $row["password"];
+
 if (isset($_POST["submit"])) {
   $name = $_POST["name"];
   $email = $_POST["email"];
@@ -35,22 +43,22 @@ if (isset($_POST["submit"])) {
   <form method="post">
     <div class="form-group my-5 mx-5">
       <label>Name</label>
-      <input type="text" class="form-control" placeholder="Name" name="name" autocomplete="off">
+      <input type="text" class="form-control" placeholder="Name" name="name" autocomplete="off" value="<?php echo $name ?>">
       </label>
     </div>
     <div class="form-group mx-5">
       <label>Email</label>
-      <input type="email" class="form-control" placeholder="email" name="email" autocomplete="off">
+      <input type="email" class="form-control" placeholder="email" name="email" autocomplete="off" value="<?php echo $email ?>">
       </label>
     </div>
     <div class="form-group mx-5">
       <label>Mobile</label>
-      <input type="text" class="form-control" placeholder="mobile" name="mobile" autocomplete="off">
+      <input type="text" class="form-control" placeholder="mobile" name="mobile" autocomplete="off" value="<?php echo $mobile ?>">
       </label>
     </div>
     <div class="form-group mx-5">
       <label>password</label>
-      <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off">
+      <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off" value="<?php echo $password ?>">
       </label>
     </div>
     <button type="submit" class="btn btn-primary mx-5" name="submit">Update</button>
